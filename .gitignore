@@ -1,0 +1,107 @@
+# Environment Variables - NEVER commit these!
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Python Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+.Python
+virtualenv/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Qdrant Storage - Don't commit database files
+qdrant_storage/
+qdrant_config/
+qdrant_data/
+*.qdrant
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs and Databases
+*.log
+*.sqlite
+*.sqlite3
+*.db
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Testing
+.coverage
+.pytest_cache/
+.tox/
+htmlcov/
+.coverage.*
+coverage.xml
+*.cover
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# Package files
+*.tar.gz
+*.zip
+*.rar
+
+# Backup files
+*.bak
+*.backup
+*~
+*.tmp
+
+# API Keys and Secrets
+secrets/
+credentials/
+*.pem
+*.key
+*.cert
+
+# Docker volumes (local development)
+volumes/
+data/
+
+# Node modules (if you add any JS dependencies)
+node_modules/
+
+# Temporary files
+temp/
+tmp/
+cache/
+
+# Railway
+.railway/

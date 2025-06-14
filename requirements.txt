@@ -1,0 +1,22 @@
+# Core dependencies - let pip resolve versions
+streamlit
+python-dotenv
+
+# LangChain and AI
+langchain
+langchain-openai
+langchain-qdrant
+langchain-community
+openai
+
+# Vector database
+qdrant-client
+
+# Web scraping
+beautifulsoup4
+requests
+lxml
+
+# Utilities
+pyperclip
+validators

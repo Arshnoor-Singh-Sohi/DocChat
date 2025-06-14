@@ -1,0 +1,56 @@
+[theme]
+# Primary accent color for interactive elements
+primaryColor = "#00d4ff"
+
+# Background color for the main content area
+backgroundColor = "#0e1117"
+
+# Background color for sidebar and most interactive widgets
+secondaryBackgroundColor = "#1a1d24"
+
+# Color used for almost all text
+textColor = "#fafafa"
+
+# Font family for all text in the app, except code blocks
+font = "sans serif"
+
+[server]
+# Port to use for the app (will be overridden by Railway/Render)
+port = 8501
+
+# Enable CORS protection
+enableCORS = true
+
+# Enable Streamlit's static file serving
+enableStaticServing = true
+
+# Disable the file watcher for production
+fileWatcherType = "none"
+
+# Increase max upload size for larger documentation sites
+maxUploadSize = 200
+
+[browser]
+# Internet address where users should point their browsers
+serverAddress = "0.0.0.0"
+
+# Whether to send usage statistics to Streamlit
+gatherUsageStats = false
+
+[runner]
+# Allows you to type a variable or string by itself in a single line of Python code
+magicEnabled = true
+
+# Install a Python tracer to allow you to stop or pause your script
+installTracer = false
+
+[client]
+# Whether to enable st.cache
+caching = true
+
+# If false, makes your Streamlit script not draw to a Streamlit app
+displayEnabled = true
+
+[deprecation]
+# Set to false to disable the deprecation warning
+showfileUploaderEncoding = false
