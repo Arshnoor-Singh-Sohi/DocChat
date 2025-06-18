@@ -1,0 +1,23 @@
+# nixpacks.toml
+[phases.setup]
+nixPkgs = ["python311", "gcc", "zlib", "stdenv.cc.cc.lib"]
+
+[phases.install]
+cmds = [
+    "pip install --upgrade pip",
+    "pip install -r requirements.txt"
+]
+
+[phases.build]
+cmds = [
+    "chmod +x start.sh || true"
+]
+
+[start]
+cmd = "./start.sh"
+
+[variables]
+PYTHONUNBUFFERED = "1"
+STREAMLIT_SERVER_PORT = "$PORT"
+STREAMLIT_SERVER_ADDRESS = "0.0.0.0"
+STREAMLIT_SERVER_HEADLESS = "true"
