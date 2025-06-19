@@ -629,44 +629,33 @@ if st.session_state.processing and doc_url:
         
         # Create vector store with visual progress
         with st.spinner(""):
+            # Create containers for each step
+            step_containers = []
+            for step in steps:
+                step_containers.append(st.empty())
+            
+            progress_container = st.empty()
+            
             # Simulate progress for each step
             for i, step in enumerate(steps):
-                progress_html = '<div style="margin-top: 1rem;">'
-                
+                # Update each step status
                 for j, s in enumerate(steps):
                     if j < i:
-                        status_class = "completed"
-                        icon = "✅"
+                        step_containers[j].success(f"✅ {s['text']}")
                     elif j == i:
-                        status_class = "active"
-                        icon = s["icon"]
+                        step_containers[j].info(f"{s['icon']} {s['text']} (In Progress)")
                     else:
-                        status_class = ""
-                        icon = s["icon"]
-                    
-                    progress_html += f"""
-                    <div class="progress-step {status_class}">
-                        <span class="progress-icon">{icon}</span>
-                        <span class="progress-text">{s["text"]}</span>
-                    </div>
-                    """
-                
-                progress_html += '</div>'
+                        step_containers[j].write(f"{s['icon']} {s['text']}")
                 
                 # Add current progress if crawling
                 if i == 1 and st.session_state.progress_info["progress"] > 0:
-                    progress_html += f"""
-                    <div style="margin-top: 1rem; padding: 1rem; background: var(--bg-tertiary); border-radius: 8px;">
-                        <p style="margin: 0; color: var(--text-secondary);">
-                            Crawling page {st.session_state.progress_info.get('current', 0)} of {st.session_state.progress_info.get('total', max_pages)}
-                        </p>
-                        <div style="margin-top: 0.5rem; background: var(--bg-primary); border-radius: 4px; height: 8px; overflow: hidden;">
-                            <div style="background: var(--accent); height: 100%; width: {st.session_state.progress_info['progress'] * 100}%; transition: width 0.3s ease;"></div>
-                        </div>
-                    </div>
-                    """
-                
-                progress_placeholder.markdown(progress_html, unsafe_allow_html=True)
+                    current = st.session_state.progress_info.get('current', 0)
+                    total = st.session_state.progress_info.get('total', max_pages)
+                    progress = st.session_state.progress_info['progress']
+                    
+                    with progress_container.container():
+                        st.write(f"Crawling page {current} of {total}")
+                        st.progress(progress)
                 
                 if i == 1:
                     # Actually create the vector store during crawling step
