@@ -857,6 +857,6 @@ st.markdown("---")
 st.markdown("""
 <div style="text-align: center; color: var(--text-secondary); padding: 2rem 0;">
     <p>Built with ❤️ using Streamlit, LangChain, and Qdrant</p>
-    <p style="font-size: 0.85rem; opacity: 0.7;">DocChat AI © 2024 | Powered by OpenAI GPT-4</p>
+    <p style="font-size: 0.85rem; opacity: 0.7;">DocChat AI © 2025 | Powered by OpenAI GPT-4</p>
 </div>
 """, unsafe_allow_html=True)
